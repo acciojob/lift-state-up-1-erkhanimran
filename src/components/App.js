@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import './../styles/App.css';
-import TodoList from "./Parent";
+import ChildComponent from "./ChildComponent";
 
-const App = () => {
+function App() {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleClick = () => {
+    setShowModal(true);
+  };
+
   return (
-    <div>
-        <TodoList/>
+    <div class="parent">
+      <h1>Parent Component</h1>
+      <ChildComponent showModal={showModal} handleClick={handleClick} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
